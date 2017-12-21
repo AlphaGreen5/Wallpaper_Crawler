@@ -59,6 +59,7 @@ def menu():
     print('\nDo you want to exit or want to go to the menu :')
     ans=input("(Enter exit or menu) :")
     if(ans.lower()=='menu'):
+        os.system('cls')
         main()
     elif(ans.lower()=='exit'):
         print('Good Bye')
