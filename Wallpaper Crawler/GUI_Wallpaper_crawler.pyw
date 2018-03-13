@@ -6,8 +6,10 @@ from bs4 import BeautifulSoup
 import re
 import requests
 import threading
+from time import sleep
 
-def download_web_image(imageUrl,imageName,path):
+
+def download_web_image(number,imageUrl,imageName,path):
     fullName = path+'\\'+imageName
     req=requests.get(imageUrl,stream=True)
     req.raise_for_status()
@@ -15,11 +17,12 @@ def download_web_image(imageUrl,imageName,path):
         for chunk in req.iter_content(chunk_size=300000):
             fd.write(chunk)
         window.label4.config(text='Downloading Wallpapers')
-        image_name=imageName+' got downloaded.'
+        image_name='{}.  {} got downloaded.'.format(number,imageName)
         window.label5.config(text=image_name)
     
     
 def browse_spider(folder_Name,wallpaper_name):
+    number=0
     page = 1
     while page <= 80:
         #print('\n\n Getting Page '+str(page)+' contents...')
@@ -39,10 +42,12 @@ def browse_spider(folder_Name,wallpaper_name):
                     if rew.status_code==404:
                         continue
                     else:
-                        download_web_image(url_a,name, folder_Name)
+                        download_web_image(number,url_a,name, folder_Name)
                 else:
-                    download_web_image(url_a,name, folder_Name)
+                    download_web_image(number,url_a,name, folder_Name)
+            number+=1
         page +=1
+        
 
 
 class wall_crawler():
@@ -69,7 +74,7 @@ class wall_crawler():
         self.label4.place(x=100,y=150)
 
         self.label5=ttk.Label(alpha,text='',foreground='blue',font=('arial',13,'bold'))
-        self.label5.place(x=90,y=200)
+        self.label5.place(x=60,y=200)
 
         
         
@@ -99,6 +104,8 @@ class wall_crawler():
         
 
 def threader():
+    sleep(0.5)
+    window.label4.config(text='Connecting to the server.',foreground="green")
     t=threading.Thread(target=start)
     t.daemon=True
     t.start()
@@ -115,6 +122,7 @@ def main():
     global window
     root=Tk()
     window=wall_crawler(root)
+    root.iconbitmap(r'C:\Icons\Xazac-Colorflow-Wallpapers.ico')
     root.mainloop()
 
 
