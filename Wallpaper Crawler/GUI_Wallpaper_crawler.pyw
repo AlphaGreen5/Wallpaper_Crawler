@@ -1,12 +1,13 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter import filedialog
-import os
-from bs4 import BeautifulSoup
 import re
-import requests
 import threading
 from time import sleep
+from bs4 import BeautifulSoup
+
+import requests
+
 
 
 def download_web_image(number,imageUrl,imageName,path):
