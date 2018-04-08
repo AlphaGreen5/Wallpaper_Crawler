@@ -11,7 +11,8 @@ In windows direct open the install.py file
 and in linux run the file in cmd using "python install.py" without quotes.
 
 ## **Why using wallpaper downloader ?**  
-. It's easy to run.
-. Either type the address of the folder or browse for the folder.
-. Fast wallpaper downloading.    
-. Want to change the wallpaper in the middle of the download, just change the name and hit the download button   
+  
+. It's easy to run  
+. Either type the address of the folder or browse for the folder   
+. Fast wallpaper downloading   
+. Want to change the wallpaper in the middle of the download, just change the name and hit the download button
