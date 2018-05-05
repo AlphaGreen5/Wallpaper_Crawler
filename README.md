@@ -8,7 +8,7 @@ It will download all the wallpaper matching with the wallpaper name.
 # **How to install**
 Use install.py file to install all required libraries to run the application.
 In windows direct open the install.py file
-and in linux run the file in cmd using "python install.py" without quotes.
+and in linux run the file in shell using "python install.py" without quotes.
 
 ## **Why using wallpaper downloader ?**  
   
